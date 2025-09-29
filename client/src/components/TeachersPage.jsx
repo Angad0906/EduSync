@@ -4,8 +4,9 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import Navbar from "./Navbar"
 import { Users, GraduationCap, Building, Award, Loader2, AlertTriangle, Sparkles, User } from "lucide-react"
+import { API_ENDPOINTS } from "../config/api.js"
 
-const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule"
+const API_URL = API_ENDPOINTS.SCHEDULE
 
 function TeachersPage() {
   const [teachers, setTeachers] = useState([])

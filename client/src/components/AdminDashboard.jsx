@@ -46,8 +46,9 @@ import {
   Sparkles,
   Brain,
 } from "lucide-react";
+import { API_ENDPOINTS } from "../config/api.js"
 
-const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule";
+const API_URL = API_ENDPOINTS.SCHEDULE;
 
 // Conflict Resolution Section Component
 function ConflictResolutionSection({

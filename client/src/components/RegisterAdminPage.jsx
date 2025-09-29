@@ -5,8 +5,9 @@ import { useNavigate, Link } from "react-router-dom"
 import axios from "axios"
 import Navbar from "./Navbar"
 import { User, Mail, Lock, Shield, Building, Eye, EyeOff, UserPlus, CheckCircle, AlertCircle, Loader2 } from "lucide-react"
+import { API_ENDPOINTS } from "../config/api.js"
 
-const API_URL = "https://edusync-1-rn3w.onrender.com/api/auth"
+const API_URL = API_ENDPOINTS.AUTH
 
 function RegisterAdminPage() {
   const navigate = useNavigate()

@@ -20,9 +20,10 @@ import {
   Edit3,
   Sparkles
 } from "lucide-react"
+import { API_ENDPOINTS } from "../config/api.js"
 
-const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule"
-const AUTH_API_URL = "https://edusync-1-rn3w.onrender.com/api/auth"
+const API_URL = API_ENDPOINTS.SCHEDULE
+const AUTH_API_URL = API_ENDPOINTS.AUTH
 
 function StudentDashboard() {
   const user = getCurrentUser()
