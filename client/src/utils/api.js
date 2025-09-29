@@ -5,7 +5,7 @@
 // Base API URL - Environment-based configuration
 const getApiUrl = () => {
   if (import.meta.env.PROD) {
-    return import.meta.env.VITE_API_URL || 'https://your-backend-url.onrender.com/api'
+    return import.meta.env.VITE_API_URL || 'https://edusync-1-rn3w.onrender.com/api'
   }
   return 'http://localhost:3001/api'
 }

@@ -27,7 +27,7 @@ const PORT = process.env.PORT || 3001
 const allowedOrigins = [
   "http://localhost:5173", // Vite dev server
   "http://localhost:3000", // Alternative dev server
-  "https://your-vercel-app.vercel.app", // Replace with your actual Vercel URL
+  "https://edusync-angad.vercel.app", // Your Vercel deployment
   process.env.FRONTEND_URL // Allow environment-based frontend URL
 ].filter(Boolean)
 

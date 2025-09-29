@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = "http://localhost:3000/api"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api"
 
 const checkServerConnection = async () => {
   try {

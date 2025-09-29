@@ -21,8 +21,8 @@ import {
   Sparkles
 } from "lucide-react"
 
-const API_URL = "http://localhost:3000/api/schedule"
-const AUTH_API_URL = "http://localhost:3000/api/auth"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule"
+const AUTH_API_URL = "https://edusync-1-rn3w.onrender.com/api/auth"
 
 function StudentDashboard() {
   const user = getCurrentUser()

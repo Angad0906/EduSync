@@ -5,7 +5,7 @@ import axios from "axios"
 import Navbar from "./Navbar"
 import { Users, GraduationCap, Building, Award, Loader2, AlertTriangle, Sparkles, User } from "lucide-react"
 
-const API_URL = "http://localhost:3000/api/schedule"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule"
 
 function TeachersPage() {
   const [teachers, setTeachers] = useState([])

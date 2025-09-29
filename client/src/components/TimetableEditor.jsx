@@ -39,7 +39,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-const API_URL = "http://localhost:3000/api/schedule";
+const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule";
 
 const DAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 const TIME_SLOTS = [

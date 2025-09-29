@@ -21,7 +21,7 @@ import {
   Sparkles
 } from "lucide-react"
 
-const API_URL = "http://localhost:3000/api"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api"
 
 function TeachingPracticeManager() {
   const [practices, setPractices] = useState([])
