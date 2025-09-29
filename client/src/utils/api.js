@@ -2,16 +2,11 @@
  * API Configuration and ML Integration Utilities
  */
 
-// Base API URL - Environment-based configuration
-const getApiUrl = () => {
-  if (import.meta.env.PROD) {
-    return import.meta.env.VITE_API_URL || 'https://edusync-1-rn3w.onrender.com/api'
-  }
-  return 'http://localhost:3001/api'
-}
+import { API_BASE_URL, API_ENDPOINTS } from '../config/api.js'
 
-export const API_URL = getApiUrl()
-export const ML_API_URL = `${getApiUrl()}/ml`
+// Export for backward compatibility
+export const API_URL = API_BASE_URL
+export const ML_API_URL = API_ENDPOINTS.ML
 
 // ML API endpoints
 export const ML_ENDPOINTS = {

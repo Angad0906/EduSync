@@ -1,15 +1,14 @@
 import axios from "axios"
-
-const API_URL = "https://edusync-1-rn3w.onrender.com/api"
+import { API_ENDPOINTS } from "../config/api.js"
 
 const checkServerConnection = async () => {
   try {
-    const response = await axios.get(`${API_URL}/health`, { timeout: 5000 })
+    const response = await axios.get(API_ENDPOINTS.HEALTH, { timeout: 5000 })
     return true
   } catch (error) {
     console.error("[v0] Server connection failed:", error.message)
     if (error.code === "ECONNREFUSED") {
-      console.error("[v0] Server is not running on port 3000")
+      console.error("[v0] Server is not reachable")
     } else if (error.code === "TIMEOUT") {
       console.error("[v0] Server connection timed out")
     }
@@ -21,11 +20,11 @@ const checkServerConnection = async () => {
 export const login = async (email, password) => {
   try {const serverReachable = await checkServerConnection()
     if (!serverReachable) {
-      throw new Error("Cannot connect to server. Please ensure the server is running on port 3000.")
+      throw new Error("Cannot connect to server. Please check your internet connection and try again.")
     }
 
     const response = await axios.post(
-      `${API_URL}/auth/login`,
+      API_ENDPOINTS.LOGIN,
       { email, password },
       {
         timeout: 10000, // 10 second timeout
@@ -43,7 +42,7 @@ export const login = async (email, password) => {
     console.error("[v0] Login error details:", error)
 
     if (error.code === "ECONNREFUSED") {
-      throw new Error("Server is not running. Please start the server on port 3000.")
+      throw new Error("Server is not reachable. Please check your internet connection.")
     } else if (error.code === "TIMEOUT") {
       throw new Error("Request timed out. Please check your connection.")
     } else if (error.response?.status === 401) {
@@ -61,7 +60,7 @@ export const login = async (email, password) => {
 // Register user
 export const register = async (userData) => {
   try {
-    const response = await axios.post(`${API_URL}/auth/register`, userData)
+    const response = await axios.post(API_ENDPOINTS.REGISTER, userData)
     return response.data
   } catch (error) {
     console.error("[v0] Registration error details:", error)
