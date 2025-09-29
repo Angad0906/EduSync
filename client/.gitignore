@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 *.env
 node_modules
+
+# Large video files
+src/assets/*.mp4
+src/assets/*.mov
+src/assets/*.avi
