@@ -27,13 +27,30 @@ const PORT = process.env.PORT || 3001
 const allowedOrigins = [
   "http://localhost:5173", // Vite dev server
   "http://localhost:3000", // Alternative dev server
-  "https://edusync-angad.vercel.app", // Your Vercel deployment
   process.env.FRONTEND_URL // Allow environment-based frontend URL
 ].filter(Boolean)
 
+// CORS configuration with dynamic origin checking
 app.use(
   cors({
-    origin: process.env.NODE_ENV === 'production' ? allowedOrigins : "*",
+    origin: (origin, callback) => {
+      // Allow requests with no origin (mobile apps, curl, etc.)
+      if (!origin) return callback(null, true)
+      
+      // In development, allow all origins
+      if (process.env.NODE_ENV !== 'production') {
+        return callback(null, true)
+      }
+      
+      // In production, allow Vercel domains and configured origins
+      if (origin.includes('vercel.app') || allowedOrigins.includes(origin)) {
+        return callback(null, true)
+      }
+      
+      // Log rejected origins for debugging
+      console.log('CORS rejected origin:', origin)
+      callback(new Error('Not allowed by CORS'))
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
@@ -99,7 +116,13 @@ app.use("/api", exportRoutes)
 
 // Health check endpoint
 app.get("/api/health", (req, res) => {
-  res.json({ status: "OK", message: "Server is running" })
+  console.log('Health check requested from origin:', req.get('Origin'))
+  res.json({ 
+    status: "OK", 
+    message: "Server is running",
+    timestamp: new Date().toISOString(),
+    origin: req.get('Origin')
+  })
 })
 
 // Root route for testing
