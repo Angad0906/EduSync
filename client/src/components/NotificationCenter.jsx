@@ -6,7 +6,7 @@ function NotificationCenter() {
 
   useEffect(() => {
     // WebSocket connection for real-time notifications
-    const websocket = new WebSocket(`ws://localhost:3000/notifications`);
+    const websocket = new WebSocket(`ws://edusync-1-rn3w.onrender.com/notifications`);
     
     websocket.onmessage = (event) => {
       const notification = JSON.parse(event.data);
