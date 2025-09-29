@@ -385,7 +385,7 @@ export class ScheduleMLModel {
         return true
       }
     } catch (error) {
-      console.error('Error loading model:', error)
+      console.log('ML model not found, using heuristic fallback model')
       // Fallback to heuristic model
       await this.createModel()
       this.isTrained = true
