@@ -17,7 +17,7 @@ import {
   Sparkles
 } from "lucide-react"
 
-const API_URL = "http://localhost:3000/api/schedule"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule"
 
 const YEARS = [1, 2, 3, 4]
 const BRANCHES = [
