@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import APITest from "./APITest";
 import {
   Calendar,
   Users,
@@ -321,7 +320,6 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <APITest />
       {/* Enhanced Scroll Animation Styles */}
       <style jsx>{`
         /* Smooth scrolling for the entire page */
@@ -656,7 +654,7 @@ function HomePage() {
                       poster=""
                     >
                       <source
-                        src="\src\assets\SIH(Landing).mp4"
+                        src="/SIH(Landing).mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
