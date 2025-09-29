@@ -18,7 +18,7 @@ import APIKeyManager from "./APIKeyManager";
 import MLScheduleGenerator from "./MLScheduleGenerator";
 import MLOptimizationDashboard from "./MLOptimizationDashboard";
 import { logout, getCurrentUser } from "../utils/auth";
-import toast from 'react-hot-toast';
+import toast from "react-hot-toast";
 import {
   Calendar,
   Users,
@@ -50,7 +50,13 @@ import {
 const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule";
 
 // Conflict Resolution Section Component
-function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivision, onScheduleUpdate, onError }) {
+function ConflictResolutionSection({
+  selectedYear,
+  selectedBranch,
+  selectedDivision,
+  onScheduleUpdate,
+  onError,
+}) {
   const [conflicts, setConflicts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showConflicts, setShowConflicts] = useState(false);
@@ -67,7 +73,8 @@ function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivis
       });
       setConflicts(response.data.conflicts);
       setShowConflicts(true);
-    } catch (error) {toast.error("Error fetching conflicts. Please try again.");
+    } catch (error) {
+      toast.error("Error fetching conflicts. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -83,7 +90,8 @@ function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivis
       });
       onScheduleUpdate(response.data);
       setShowConflicts(false);
-    } catch (error) {toast.error("Error resolving conflicts. Please try again.");
+    } catch (error) {
+      toast.error("Error resolving conflicts. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -128,8 +136,12 @@ function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivis
               <div className="text-green-600 mb-4">
                 <CheckCircle className="w-16 h-16 mx-auto" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">No Conflicts Found!</h3>
-              <p className="text-gray-600">Your timetable is conflict-free and ready to use.</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                No Conflicts Found!
+              </h3>
+              <p className="text-gray-600">
+                Your timetable is conflict-free and ready to use.
+              </p>
               <button
                 onClick={() => setShowConflicts(false)}
                 className="mt-4 px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all duration-300"
@@ -141,16 +153,21 @@ function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivis
             <>
               <div className="bg-red-50 border border-red-200 rounded-lg p-4">
                 <h3 className="text-lg font-bold text-red-800 mb-2">
-                  Found {conflicts.length} Conflict{conflicts.length !== 1 ? 's' : ''}
+                  Found {conflicts.length} Conflict
+                  {conflicts.length !== 1 ? "s" : ""}
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                   <div className="text-sm">
-                    <span className="font-semibold text-red-700">Room Conflicts:</span>{' '}
-                    {conflicts.filter(c => c.type === "room").length}
+                    <span className="font-semibold text-red-700">
+                      Room Conflicts:
+                    </span>{" "}
+                    {conflicts.filter((c) => c.type === "room").length}
                   </div>
                   <div className="text-sm">
-                    <span className="font-semibold text-red-700">Instructor Conflicts:</span>{' '}
-                    {conflicts.filter(c => c.type === "instructor").length}
+                    <span className="font-semibold text-red-700">
+                      Instructor Conflicts:
+                    </span>{" "}
+                    {conflicts.filter((c) => c.type === "instructor").length}
                   </div>
                 </div>
               </div>
@@ -162,11 +179,17 @@ function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivis
                     className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm"
                   >
                     <div className="flex items-center mb-2">
-                      <div className={`w-3 h-3 rounded-full mr-2 ${
-                        conflict.type === "room" ? "bg-red-500" : "bg-orange-500"
-                      }`}></div>
+                      <div
+                        className={`w-3 h-3 rounded-full mr-2 ${
+                          conflict.type === "room"
+                            ? "bg-red-500"
+                            : "bg-orange-500"
+                        }`}
+                      ></div>
                       <h4 className="font-semibold text-gray-900">
-                        {conflict.type === "room" ? "Room Conflict" : "Instructor Conflict"}
+                        {conflict.type === "room"
+                          ? "Room Conflict"
+                          : "Instructor Conflict"}
                       </h4>
                     </div>
                     <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
@@ -174,12 +197,13 @@ function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivis
                         <span className="font-medium">Day:</span> {conflict.day}
                       </div>
                       <div>
-                        <span className="font-medium">Time:</span> {conflict.startTime}
+                        <span className="font-medium">Time:</span>{" "}
+                        {conflict.startTime}
                       </div>
                     </div>
                     <div className="mt-2 text-sm text-gray-600">
-                      <span className="font-medium">Affected Courses:</span>{' '}
-                      {conflict.courses.map(c => c.name).join(", ")}
+                      <span className="font-medium">Affected Courses:</span>{" "}
+                      {conflict.courses.map((c) => c.name).join(", ")}
                     </div>
                   </div>
                 ))}
@@ -255,7 +279,8 @@ function ManualScheduleChange({ notification, onClose, onSuccess }) {
     try {
       const response = await axios.get(`${API_URL}/timetables`);
       setSchedules(response.data);
-    } catch (error) {setError("Error fetching schedules. Please try again.");
+    } catch (error) {
+      setError("Error fetching schedules. Please try again.");
     }
   };
 
@@ -263,7 +288,8 @@ function ManualScheduleChange({ notification, onClose, onSuccess }) {
     try {
       const response = await axios.get(`${API_URL}/courses-all`);
       setCourses(response.data);
-    } catch (error) {setError("Error fetching courses. Please try again.");
+    } catch (error) {
+      setError("Error fetching courses. Please try again.");
     }
   };
 
@@ -271,7 +297,8 @@ function ManualScheduleChange({ notification, onClose, onSuccess }) {
     try {
       const response = await axios.get(`${API_URL}/rooms`);
       setRooms(response.data);
-    } catch (error) {setError("Error fetching rooms. Please try again.");
+    } catch (error) {
+      setError("Error fetching rooms. Please try again.");
     }
   };
 
@@ -323,7 +350,8 @@ function ManualScheduleChange({ notification, onClose, onSuccess }) {
       setSuccess("Schedule updated successfully");
       await axios.post(`${API_URL}/notifications/${notification._id}/approve`);
       onSuccess();
-    } catch (error) {if (error.response?.data?.conflicts) {
+    } catch (error) {
+      if (error.response?.data?.conflicts) {
         setError(
           `Error: ${
             error.response.data.message
@@ -668,7 +696,8 @@ function AdminDashboard() {
         },
       });
       setCourses(response.data);
-    } catch (error) {setErrorMessage("Error fetching courses. Please try again later.");
+    } catch (error) {
+      setErrorMessage("Error fetching courses. Please try again later.");
     }
   };
 
@@ -676,7 +705,8 @@ function AdminDashboard() {
     try {
       const response = await axios.get(`${API_URL}/rooms`);
       setRooms(response.data);
-    } catch (error) {setErrorMessage("Error fetching rooms. Please try again later.");
+    } catch (error) {
+      setErrorMessage("Error fetching rooms. Please try again later.");
     }
   };
 
@@ -688,15 +718,18 @@ function AdminDashboard() {
   };
 
   const addCourse = async (course) => {
-    try {const response = await axios.post(`${API_URL}/courses`, {
+    try {
+      const response = await axios.post(`${API_URL}/courses`, {
         ...course,
         year: selectedYear,
         branch: selectedBranch,
         division: selectedDivision,
-      });toast.success("Course added successfully!");
+      });
+      toast.success("Course added successfully!");
       fetchCourses();
       return response.data;
-    } catch (error) {const errorMessage =
+    } catch (error) {
+      const errorMessage =
         error.response?.data?.message ||
         "Error adding course. Please try again.";
       toast.error(errorMessage);
@@ -709,14 +742,15 @@ function AdminDashboard() {
       await axios.post(`${API_URL}/rooms`, room);
       toast.success("Room added successfully!");
       fetchRooms();
-    } catch (error) {toast.error("Error adding room. Please try again.");
+    } catch (error) {
+      toast.error("Error adding room. Please try again.");
     }
   };
 
   const generateSchedule = async () => {
     setIsLoading(true);
     try {
-      toast.loading("Generating schedule...", { id: 'generate-schedule' });
+      toast.loading("Generating schedule...", { id: "generate-schedule" });
       const response = await axios.post(`${API_URL}/generate`, {
         year: selectedYear,
         branch: selectedBranch,
@@ -724,10 +758,13 @@ function AdminDashboard() {
       });
       setCurrentSchedule(response.data);
       setShowSchedule(true);
-      toast.success("Schedule generated successfully!", { id: 'generate-schedule' });
-    } catch (error) {toast.error(
+      toast.success("Schedule generated successfully!", {
+        id: "generate-schedule",
+      });
+    } catch (error) {
+      toast.error(
         "Error generating schedule. Please ensure you have added courses and rooms, then try again.",
-        { id: 'generate-schedule' }
+        { id: "generate-schedule" }
       );
     } finally {
       setIsLoading(false);
@@ -745,7 +782,7 @@ function AdminDashboard() {
 
   const handleViewSchedule = async () => {
     try {
-      toast.loading("Loading schedule...", { id: 'view-schedule' });
+      toast.loading("Loading schedule...", { id: "view-schedule" });
       const response = await axios.get(`${API_URL}/latest`, {
         params: {
           year: selectedYear,
@@ -755,8 +792,11 @@ function AdminDashboard() {
       });
       setCurrentSchedule(response.data);
       setShowSchedule(true);
-      toast.success("Schedule loaded successfully!", { id: 'view-schedule' });
-    } catch (error) {toast.error("Error fetching schedule. Please try again later.", { id: 'view-schedule' });
+      toast.success("Schedule loaded successfully!", { id: "view-schedule" });
+    } catch (error) {
+      toast.error("Error fetching schedule. Please try again later.", {
+        id: "view-schedule",
+      });
     }
   };
 
@@ -980,17 +1020,17 @@ function AdminDashboard() {
 
           {activeTab === "ml" && (
             <div className="space-y-8">
-              <MLScheduleGenerator 
+              <MLScheduleGenerator
                 onScheduleGenerated={setMlGeneratedSchedule}
                 onError={(error) => toast.error(error)}
               />
-              
+
               {mlGeneratedSchedule && (
-                <MLOptimizationDashboard 
+                <MLOptimizationDashboard
                   scheduleId={mlGeneratedSchedule._id}
                   onOptimizationComplete={(optimizedSchedule) => {
-                    setMlGeneratedSchedule(optimizedSchedule)
-                    toast.success("Schedule optimized successfully!")
+                    setMlGeneratedSchedule(optimizedSchedule);
+                    toast.success("Schedule optimized successfully!");
                   }}
                 />
               )}
@@ -1179,7 +1219,7 @@ function AdminDashboard() {
                   </div>
 
                   {/* Conflict Resolution */}
-                  <ConflictResolutionSection 
+                  <ConflictResolutionSection
                     selectedYear={selectedYear}
                     selectedBranch={selectedBranch}
                     selectedDivision={selectedDivision}
