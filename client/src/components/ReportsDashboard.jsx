@@ -15,7 +15,7 @@ import {
   Sparkles
 } from "lucide-react"
 
-const API_URL = "http://localhost:3000/api/schedule"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule"
 
 export default function ReportsDashboard() {
   const [year, setYear] = useState(1)
