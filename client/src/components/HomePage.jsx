@@ -644,21 +644,42 @@ function HomePage() {
             <div className="relative lg:col-span-3 mt-8 lg:mt-0">
               <div className="video-container shadow-2xl transform rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="video-inner p-2 lg:p-3">
-                  <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
+                  <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
+                    {/* Try multiple video sources and fallback */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
                       loop
                       muted
                       playsInline
-                      poster=""
+                      controls
+                      poster="/background.jpg"
+                      onError={(e) => {
+                        console.error('Video error:', e);
+                        e.target.style.display = 'none';
+                        e.target.nextElementSibling.style.display = 'flex';
+                      }}
+                      onLoadStart={() => console.log('Video loading started')}
+                      onCanPlay={() => console.log('Video can play')}
                     >
-                      <source
-                        src="/SIH(Landing).mp4"
-                        type="video/mp4"
-                      />
-                      Your browser does not support the video tag.
+                      <source src="/SIH(Landing).mp4" type="video/mp4" />
+                      <source src="./SIH(Landing).mp4" type="video/mp4" />
+                      <source src="/public/SIH(Landing).mp4" type="video/mp4" />
                     </video>
+
+                    {/* Fallback content */}
+                    <div className="hidden w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-200 to-blue-200 text-gray-700">
+                      <div className="text-center p-8">
+                        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                          <Play className="w-8 h-8 text-purple-600" />
+                        </div>
+                        <div className="text-xl font-bold mb-2">EduSync Demo</div>
+                        <div className="text-sm opacity-75 mb-4">AI-Powered Timetable Generation</div>
+                        <div className="text-xs text-gray-600">
+                          Video loading... Please check your connection
+                        </div>
+                      </div>
+                    </div>
 
                     {/* Video overlay with play button */}
                     <div className="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
