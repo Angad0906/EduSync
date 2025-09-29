@@ -120,52 +120,67 @@ function FAQSection() {
   const faqData = [
     {
       question: "What is EduSync and how does it work?",
-      answer: "EduSync is an AI-powered timetable generation system designed for educational institutions. It uses advanced genetic algorithms to automatically create conflict-free schedules by considering teacher availability, room capacity, course requirements, and student preferences. Simply input your courses, teachers, and rooms, and EduSync generates optimized timetables in minutes."
+      answer:
+        "EduSync is an AI-powered timetable generation system designed for educational institutions. It uses advanced genetic algorithms to automatically create conflict-free schedules by considering teacher availability, room capacity, course requirements, and student preferences. Simply input your courses, teachers, and rooms, and EduSync generates optimized timetables in minutes.",
     },
     {
-      question: "How does the AI scheduling algorithm ensure conflict-free timetables?",
-      answer: "Our genetic algorithm systematically checks for conflicts including teacher double-booking, room overlaps, and student schedule clashes. It considers multiple constraints like teacher expertise, preferred time slots, room types (labs vs classrooms), and workload limits. The system iteratively improves the schedule until it finds the optimal solution with zero conflicts."
+      question:
+        "How does the AI scheduling algorithm ensure conflict-free timetables?",
+      answer:
+        "Our genetic algorithm systematically checks for conflicts including teacher double-booking, room overlaps, and student schedule clashes. It considers multiple constraints like teacher expertise, preferred time slots, room types (labs vs classrooms), and workload limits. The system iteratively improves the schedule until it finds the optimal solution with zero conflicts.",
     },
     {
       question: "Can I customize and edit the generated timetables?",
-      answer: "Absolutely! EduSync provides a powerful drag-and-drop timetable editor that allows you to make real-time adjustments. You can move classes between time slots, swap rooms, reassign teachers, and the system will automatically validate changes to prevent conflicts. All modifications are saved instantly and can be exported in multiple formats."
+      answer:
+        "Absolutely! EduSync provides a powerful drag-and-drop timetable editor that allows you to make real-time adjustments. You can move classes between time slots, swap rooms, reassign teachers, and the system will automatically validate changes to prevent conflicts. All modifications are saved instantly and can be exported in multiple formats.",
     },
     {
       question: "What types of educational institutions can use EduSync?",
-      answer: "EduSync is designed for all types of educational institutions including schools, colleges, universities, training centers, and coaching institutes. It supports multiple academic programs (FYUP, B.Ed., M.Ed., ITEP), different course types (theory, lab, practical), and can handle complex scheduling requirements for institutions of any size."
+      answer:
+        "EduSync is designed for all types of educational institutions including schools, colleges, universities, training centers, and coaching institutes. It supports multiple academic programs (FYUP, B.Ed., M.Ed., ITEP), different course types (theory, lab, practical), and can handle complex scheduling requirements for institutions of any size.",
     },
     {
       question: "How does EduSync handle lab sessions and practical classes?",
-      answer: "EduSync intelligently schedules lab sessions by allocating consecutive time slots (typically 2 hours) and ensuring appropriate lab rooms are assigned. It considers lab equipment requirements, safety protocols, and teacher expertise in practical subjects. The system prioritizes lab scheduling first, then fills remaining slots with theory classes."
+      answer:
+        "EduSync intelligently schedules lab sessions by allocating consecutive time slots (typically 2 hours) and ensuring appropriate lab rooms are assigned. It considers lab equipment requirements, safety protocols, and teacher expertise in practical subjects. The system prioritizes lab scheduling first, then fills remaining slots with theory classes.",
     },
     {
       question: "Can multiple users collaborate on schedule creation?",
-      answer: "Yes! EduSync supports role-based access with different permission levels for administrators, teachers, and students. Administrators can create and modify schedules, teachers can view their assignments and request changes, and students can access their personal timetables. All changes are tracked with audit trails for accountability."
+      answer:
+        "Yes! EduSync supports role-based access with different permission levels for administrators, teachers, and students. Administrators can create and modify schedules, teachers can view their assignments and request changes, and students can access their personal timetables. All changes are tracked with audit trails for accountability.",
     },
     {
-      question: "What happens if there are scheduling conflicts or changes needed?",
-      answer: "EduSync includes a comprehensive conflict resolution system that identifies and highlights any scheduling issues. The system provides intelligent suggestions for resolving conflicts and allows for quick rescheduling. You can also use the scenario simulator to test different 'what-if' situations before implementing changes."
+      question:
+        "What happens if there are scheduling conflicts or changes needed?",
+      answer:
+        "EduSync includes a comprehensive conflict resolution system that identifies and highlights any scheduling issues. The system provides intelligent suggestions for resolving conflicts and allows for quick rescheduling. You can also use the scenario simulator to test different 'what-if' situations before implementing changes.",
     },
     {
       question: "How secure is my institution's data on EduSync?",
-      answer: "Data security is our top priority. EduSync uses enterprise-grade encryption, secure cloud storage, and complies with educational data privacy regulations. All data is backed up regularly, and we provide role-based access controls to ensure only authorized personnel can access sensitive information."
+      answer:
+        "Data security is our top priority. EduSync uses enterprise-grade encryption, secure cloud storage, and complies with educational data privacy regulations. All data is backed up regularly, and we provide role-based access controls to ensure only authorized personnel can access sensitive information.",
     },
     {
       question: "Can I export and share the generated timetables?",
-      answer: "Yes! EduSync allows you to export timetables in multiple formats including PDF, Excel, CSV, and image formats. You can generate individual teacher schedules, student timetables, room utilization reports, and department-wise schedules. Sharing options include email distribution, web links, and integration with your institution's website."
+      answer:
+        "Yes! EduSync allows you to export timetables in multiple formats including PDF, Excel, CSV, and image formats. You can generate individual teacher schedules, student timetables, room utilization reports, and department-wise schedules. Sharing options include email distribution, web links, and integration with your institution's website.",
     },
     {
       question: "What kind of support and training do you provide?",
-      answer: "We provide comprehensive support including detailed documentation, video tutorials, live training sessions, and 24/7 customer support. Our team helps with initial setup, data migration, and ongoing optimization. We also offer regular webinars and best practice sessions to help you get the most out of EduSync."
+      answer:
+        "We provide comprehensive support including detailed documentation, video tutorials, live training sessions, and 24/7 customer support. Our team helps with initial setup, data migration, and ongoing optimization. We also offer regular webinars and best practice sessions to help you get the most out of EduSync.",
     },
     {
       question: "How much does EduSync cost and what's included?",
-      answer: "EduSync offers flexible pricing plans based on your institution size and needs. Our plans include unlimited timetable generation, drag-and-drop editing, conflict resolution, multi-user access, data export, and customer support. We also offer a free trial so you can experience the full capabilities before making a commitment."
+      answer:
+        "EduSync offers flexible pricing plans based on your institution size and needs. Our plans include unlimited timetable generation, drag-and-drop editing, conflict resolution, multi-user access, data export, and customer support. We also offer a free trial so you can experience the full capabilities before making a commitment.",
     },
     {
-      question: "Can EduSync integrate with our existing student information system?",
-      answer: "Yes! EduSync provides APIs and integration capabilities to connect with popular student information systems, learning management systems, and HR platforms. We can import student data, course catalogs, and teacher information directly from your existing systems, eliminating the need for manual data entry."
-    }
+      question:
+        "Can EduSync integrate with our existing student information system?",
+      answer:
+        "Yes! EduSync provides APIs and integration capabilities to connect with popular student information systems, learning management systems, and HR platforms. We can import student data, course catalogs, and teacher information directly from your existing systems, eliminating the need for manual data entry.",
+    },
   ];
 
   return (
@@ -179,9 +194,10 @@ function FAQSection() {
           Got Questions? We've Got Answers
         </h2>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-          Everything you need to know about EduSync and how it can transform your scheduling process.
+          Everything you need to know about EduSync and how it can transform
+          your scheduling process.
         </p>
-        
+
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
           <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4">
@@ -193,7 +209,9 @@ function FAQSection() {
             <div className="text-sm text-gray-600">Support Available</div>
           </div>
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 border border-purple-200 rounded-xl p-4">
-            <div className="text-2xl font-bold text-purple-600 mb-1">&lt;2min</div>
+            <div className="text-2xl font-bold text-purple-600 mb-1">
+              &lt;2min
+            </div>
             <div className="text-sm text-gray-600">Average Response</div>
           </div>
         </div>
@@ -225,20 +243,21 @@ function FAQSection() {
 
       <div className="space-y-4">
         {faqData
-          .filter(faq => 
-            faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+          .filter(
+            (faq) =>
+              faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+              faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
           )
           .map((faq, index) => (
-          <FAQItem
-            key={index}
-            question={faq.question}
-            answer={faq.answer}
-            index={index}
-            isOpen={openIndex === index}
-            onToggle={handleToggle}
-          />
-        ))}
+            <FAQItem
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+              index={index}
+              isOpen={openIndex === index}
+              onToggle={handleToggle}
+            />
+          ))}
       </div>
 
       {/* Still have questions? */}
@@ -248,7 +267,8 @@ function FAQSection() {
             Still have questions?
           </h3>
           <p className="text-gray-600 mb-6">
-            Can't find the answer you're looking for? Our support team is here to help.
+            Can't find the answer you're looking for? Our support team is here
+            to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

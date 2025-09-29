@@ -26,7 +26,15 @@
     "node-cron": "^3.0.3",
     "axios": "^1.6.2",
     "lodash": "^4.17.21",
-    "moment": "^2.29.4"
+    "moment": "^2.29.4",
+    "nodemailer": "^6.9.7",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.31",
+    "pdfkit": "^0.14.0",
+    "xlsx": "^0.18.5",
+    "node-fetch": "^3.3.2",
+    "bull": "^4.12.2",
+    "ws": "^8.14.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
