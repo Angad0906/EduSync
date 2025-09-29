@@ -3,8 +3,8 @@
  */
 
 // Base API URL - Updated to match server port
-export const API_URL = "http://localhost:3000/api"
-export const ML_API_URL = "http://localhost:3000/api/ml"
+export const API_URL = "https://edusync-1-rn3w.onrender.com/api"
+export const ML_API_URL = "https://edusync-1-rn3w.onrender.com/api/ml"
 
 // ML API endpoints
 export const ML_ENDPOINTS = {
