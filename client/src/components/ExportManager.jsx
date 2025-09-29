@@ -3,7 +3,7 @@
 import { useState } from "react"
 import axios from "axios"
 
-const API_URL = "http://localhost:3000/api"
+const API_URL = "https://edusync-1-rn3w.onrender.com/api"
 
 function ExportManager() {
   const [loading, setLoading] = useState(false)
