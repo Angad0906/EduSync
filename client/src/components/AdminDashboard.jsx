@@ -47,7 +47,7 @@ import {
   Brain,
 } from "lucide-react";
 
-const API_URL = "http://localhost:3000/api/schedule";
+const API_URL = "https://edusync-1-rn3w.onrender.com/api/schedule";
 
 // Conflict Resolution Section Component
 function ConflictResolutionSection({ selectedYear, selectedBranch, selectedDivision, onScheduleUpdate, onError }) {
