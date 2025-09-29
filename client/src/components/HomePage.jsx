@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import APITest from "./APITest";
 import {
   Calendar,
   Users,
@@ -320,6 +321,7 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <APITest />
       {/* Enhanced Scroll Animation Styles */}
       <style jsx>{`
         /* Smooth scrolling for the entire page */
