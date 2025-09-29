@@ -24,11 +24,19 @@ const app = express()
 const PORT = process.env.PORT || 3001
 
 // Configure CORS
+const allowedOrigins = [
+  "http://localhost:5173", // Vite dev server
+  "http://localhost:3000", // Alternative dev server
+  "https://your-vercel-app.vercel.app", // Replace with your actual Vercel URL
+  process.env.FRONTEND_URL // Allow environment-based frontend URL
+].filter(Boolean)
+
 app.use(
   cors({
-    origin: "*", // Allow all origins for development
+    origin: process.env.NODE_ENV === 'production' ? allowedOrigins : "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
   }),
 )
 

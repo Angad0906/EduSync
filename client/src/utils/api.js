@@ -2,9 +2,16 @@
  * API Configuration and ML Integration Utilities
  */
 
-// Base API URL - Updated to match server port
-export const API_URL = "http://localhost:3000/api"
-export const ML_API_URL = "http://localhost:3000/api/ml"
+// Base API URL - Environment-based configuration
+const getApiUrl = () => {
+  if (import.meta.env.PROD) {
+    return import.meta.env.VITE_API_URL || 'https://your-backend-url.onrender.com/api'
+  }
+  return 'http://localhost:3001/api'
+}
+
+export const API_URL = getApiUrl()
+export const ML_API_URL = `${getApiUrl()}/ml`
 
 // ML API endpoints
 export const ML_ENDPOINTS = {
