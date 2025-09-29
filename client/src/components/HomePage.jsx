@@ -634,7 +634,7 @@ function HomePage() {
                       poster=""
                     >
                       <source
-                        src="/src/assets/TimeTable_Demo.mp4"
+                        src="\src\assets\SIH(Landing).mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
