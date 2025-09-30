@@ -1065,7 +1065,7 @@ function Login() {
                   </div>
                   <div className="bg-white/70 rounded-md p-2 border border-green-100">
                     <div className="font-medium text-green-800 mb-1">Teacher Dashboard</div>
-                    <div className="text-gray-600">Email: mohan@gmail.com</div>
+                    <div className="text-gray-600">Email: rahul@gmail.com</div>
                     <div className="text-gray-600">Password: Pass@123</div>
                   </div>
                   <div className="bg-white/70 rounded-md p-2 border border-purple-100">
