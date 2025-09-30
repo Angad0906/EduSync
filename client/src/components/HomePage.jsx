@@ -644,15 +644,15 @@ function HomePage() {
             <div className="relative lg:col-span-3 mt-8 lg:mt-0">
               <div className="video-container shadow-2xl transform rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="video-inner p-2 lg:p-3">
-                  <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
+                  <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-black/5">
                     {/* Optimized video with smaller file size */}
                     <video
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover bg-transparent"
                       autoPlay
                       loop
                       muted
                       playsInline
-                      poster="/background.jpg"
+                      preload="auto"
                       onError={(e) => {
                         console.error("Video error:", e);
                         e.target.style.display = "none";
@@ -661,9 +661,12 @@ function HomePage() {
                       onLoadStart={() => console.log("Video loading started")}
                       onCanPlay={() => console.log("Video can play")}
                       onLoadedData={() => console.log("Video loaded successfully")}
+                      onPlay={() => console.log("Video started playing")}
                     >
                       <source src="/SIH(Landing).mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
+                      <p className="text-center text-gray-600 p-4">
+                        Your browser does not support the video tag. Please update your browser.
+                      </p>
                     </video>
 
                     {/* Fallback content */}
