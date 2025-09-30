@@ -640,64 +640,100 @@ function HomePage() {
               </div>
             </div>
 
-            {/* Right Content - Demo Video */}
+            {/* Right Content - Demo Video/Image */}
             <div className="relative lg:col-span-3 mt-8 lg:mt-0">
-              {/* Simplified video container for better compatibility */}
-              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-purple-100 to-blue-100">
-                {/* Direct video implementation */}
-                <video
-                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  controls={false}
-                  preload="metadata"
-                  style={{ zIndex: 1 }}
-                  onLoadStart={() => console.log("🎥 Video loading started")}
-                  onCanPlay={() => console.log("✅ Video can play")}
-                  onPlay={() => console.log("▶️ Video started playing")}
-                  onError={(e) => {
-                    console.error("❌ Video error:", e);
-                    console.log("Video src:", e.target.src);
-                    console.log("Video readyState:", e.target.readyState);
-                  }}
-                >
-                  <source src="/SIH(Landing).mp4" type="video/mp4" />
-                  <source src="./SIH(Landing).mp4" type="video/mp4" />
-                </video>
-
-                {/* Fallback image if video fails */}
+              {/* Demo showcase container */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-purple-600 via-blue-600 to-indigo-600">
+                
+                {/* Background Image as Primary Display */}
                 <div 
-                  className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center rounded-2xl"
-                  style={{ zIndex: 0 }}
-                >
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Play className="w-10 h-10 text-purple-600" />
+                  className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+                  style={{ 
+                    backgroundImage: "url('/background.jpg')",
+                    zIndex: 1 
+                  }}
+                ></div>
+
+                {/* Overlay Content */}
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center" style={{ zIndex: 2 }}>
+                  <div className="text-center text-white p-8">
+                    {/* Play Button */}
+                    <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl hover:bg-white/30 transition-all duration-300 cursor-pointer group">
+                      <Play className="w-12 h-12 text-white ml-1 group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">EduSync Demo</h3>
-                    <p className="text-gray-600 mb-4">AI-Powered Timetable Generation</p>
-                    <div className="text-sm text-gray-500">
-                      Video: /SIH(Landing).mp4
+                    
+                    {/* Content */}
+                    <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                      EduSync Demo
+                    </h3>
+                    <p className="text-xl text-blue-100 mb-6 max-w-md mx-auto leading-relaxed">
+                      Watch how our AI-powered system generates perfect timetables in seconds
+                    </p>
+                    
+                    {/* Features */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto">
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                        <div className="text-2xl font-bold text-yellow-400">⚡</div>
+                        <div className="text-sm font-medium">Lightning Fast</div>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                        <div className="text-2xl font-bold text-green-400">✅</div>
+                        <div className="text-sm font-medium">Conflict-Free</div>
+                      </div>
+                      <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                        <div className="text-2xl font-bold text-blue-400">🤖</div>
+                        <div className="text-sm font-medium">AI-Powered</div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                {/* Decorative border */}
-                <div className="absolute inset-0 rounded-2xl border-4 border-white/20 pointer-events-none" style={{ zIndex: 2 }}></div>
+                {/* Hidden Video Element (for future use when fixed) */}
+                <video
+                  className="hidden"
+                  muted
+                  playsInline
+                  preload="none"
+                  onCanPlay={() => console.log("✅ Video ready (hidden)")}
+                  onError={(e) => console.log("ℹ️ Video error (expected, using image instead)")}
+                >
+                  <source src="/SIH(Landing).mp4" type="video/mp4" />
+                </video>
+
+                {/* Decorative Elements */}
+                <div className="absolute top-4 left-4 w-8 h-8 bg-white/20 rounded-full animate-pulse" style={{ zIndex: 3 }}></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 bg-yellow-400/30 rounded-full animate-pulse" style={{ zIndex: 3, animationDelay: '1s' }}></div>
+                <div className="absolute top-1/3 right-8 w-4 h-4 bg-pink-400/30 rounded-full animate-pulse" style={{ zIndex: 3, animationDelay: '2s' }}></div>
+                
+                {/* Border */}
+                <div className="absolute inset-0 rounded-2xl border-2 border-white/20 pointer-events-none" style={{ zIndex: 4 }}></div>
               </div>
 
-              {/* Video Debug Info */}
-              <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-white rounded-lg shadow-lg p-2 lg:p-3">
+              {/* Feature Callout */}
+              <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-white rounded-lg shadow-lg p-2 lg:p-3 animate-bounce">
                 <div className="flex items-center">
-                  <Zap className="w-4 h-4 lg:w-5 lg:h-5 text-yellow-500 mr-1 lg:mr-2" />
+                  <Sparkles className="w-4 h-4 lg:w-5 lg:h-5 text-purple-500 mr-1 lg:mr-2" />
                   <div>
                     <div className="text-xs lg:text-sm font-semibold text-gray-800">
-                      Demo Video
+                      Interactive Demo
                     </div>
-                    <div className="text-xs text-gray-600">
-                      EduSync in Action
+                    <div className="text-xs text-gray-600 hidden sm:block">
+                      See EduSync in action
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Feature Callout */}
+              <div className="absolute -bottom-2 -left-2 lg:-bottom-4 lg:-left-4 bg-white rounded-lg shadow-lg p-2 lg:p-3 animate-pulse">
+                <div className="flex items-center">
+                  <Shield className="w-4 h-4 lg:w-5 lg:h-5 text-green-500 mr-1 lg:mr-2" />
+                  <div>
+                    <div className="text-xs lg:text-sm font-semibold text-gray-800">
+                      Secure & Reliable
+                    </div>
+                    <div className="text-xs text-gray-600 hidden sm:block">
+                      Enterprise-grade security
                     </div>
                   </div>
                 </div>
