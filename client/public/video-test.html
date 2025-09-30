@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 5px;
+        }
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <h1>EduSync Video Test</h1>
+        
+        <video 
+            id="testVideo"
+            controls 
+            autoplay 
+            muted 
+            loop
+            onloadstart="updateStatus('Loading started...')"
+            oncanplay="updateStatus('Video can play!')"
+            onplay="updateStatus('Video is playing!')"
+            onerror="updateStatus('ERROR: Video failed to load!')"
+        >
+            <source src="./SIH(Landing).mp4" type="video/mp4">
+            <source src="/SIH(Landing).mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="info">
+            <h3>Video Information:</h3>
+            <p><strong>File:</strong> SIH(Landing).mp4</p>
+            <p><strong>Expected Size:</strong> ~897KB</p>
+            <p><strong>Format:</strong> MP4</p>
+        </div>
+        
+        <div class="status" id="status">
+            Initializing video test...
+        </div>
+        
+        <button onclick="testVideoLoad()" style="margin-top: 10px; padding: 10px 20px; background: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Test Video Load
+        </button>
+    </div>
+
+    <script>
+        function updateStatus(message) {
+            const status = document.getElementById('status');
+            const timestamp = new Date().toLocaleTimeString();
+            status.innerHTML += `<br>[${timestamp}] ${message}`;
+            console.log(`Video Status: ${message}`);
+        }
+        
+        function testVideoLoad() {
+            const video = document.getElementById('testVideo');
+            updateStatus('Manual load test initiated...');
+            video.load();
+            video.play().then(() => {
+                updateStatus('Manual play successful!');
+            }).catch(err => {
+                updateStatus(`Manual play failed: ${err.message}`);
+            });
+        }
+        
+        // Initial status
+        updateStatus('Page loaded, waiting for video...');
+        
+        // Check if video file exists
+        fetch('./SIH(Landing).mp4', { method: 'HEAD' })
+            .then(response => {
+                if (response.ok) {
+                    updateStatus(`✅ Video file accessible (${response.status})`);
+                } else {
+                    updateStatus(`❌ Video file not accessible (${response.status})`);
+                }
+            })
+            .catch(err => {
+                updateStatus(`❌ Video file check failed: ${err.message}`);
+            });
+    </script>
+</body>
+</html>
