@@ -642,71 +642,62 @@ function HomePage() {
 
             {/* Right Content - Demo Video */}
             <div className="relative lg:col-span-3 mt-8 lg:mt-0">
-              <div className="video-container shadow-2xl transform rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="video-inner p-2 lg:p-3">
-                  <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-black/5">
-                    {/* Optimized video with smaller file size */}
-                    <video
-                      className="w-full h-full object-cover bg-transparent"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      onError={(e) => {
-                        console.error("Video error:", e);
-                        e.target.style.display = "none";
-                        e.target.nextElementSibling.style.display = "flex";
-                      }}
-                      onLoadStart={() => console.log("Video loading started")}
-                      onCanPlay={() => console.log("Video can play")}
-                      onLoadedData={() => console.log("Video loaded successfully")}
-                      onPlay={() => console.log("Video started playing")}
-                    >
-                      <source src="/SIH(Landing).mp4" type="video/mp4" />
-                      <p className="text-center text-gray-600 p-4">
-                        Your browser does not support the video tag. Please update your browser.
-                      </p>
-                    </video>
+              {/* Simplified video container for better compatibility */}
+              <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-purple-100 to-blue-100">
+                {/* Direct video implementation */}
+                <video
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls={false}
+                  preload="metadata"
+                  style={{ zIndex: 1 }}
+                  onLoadStart={() => console.log("🎥 Video loading started")}
+                  onCanPlay={() => console.log("✅ Video can play")}
+                  onPlay={() => console.log("▶️ Video started playing")}
+                  onError={(e) => {
+                    console.error("❌ Video error:", e);
+                    console.log("Video src:", e.target.src);
+                    console.log("Video readyState:", e.target.readyState);
+                  }}
+                >
+                  <source src="/SIH(Landing).mp4" type="video/mp4" />
+                  <source src="./SIH(Landing).mp4" type="video/mp4" />
+                </video>
 
-                    {/* Fallback content */}
-                    <div className="hidden w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-200 to-blue-200 text-gray-700">
-                      <div className="text-center p-8">
-                        <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
-                          <Play className="w-8 h-8 text-purple-600" />
-                        </div>
-                        <div className="text-xl font-bold mb-2">
-                          EduSync Demo
-                        </div>
-                        <div className="text-sm opacity-75 mb-4">
-                          AI-Powered Timetable Generation
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          Video loading... Please check your connection
-                        </div>
-                      </div>
+                {/* Fallback image if video fails */}
+                <div 
+                  className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-200 to-blue-200 flex items-center justify-center rounded-2xl"
+                  style={{ zIndex: 0 }}
+                >
+                  <div className="text-center p-8">
+                    <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
+                      <Play className="w-10 h-10 text-purple-600" />
                     </div>
-
-                    {/* Video overlay with play button */}
-                    <div className="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg">
-                        <Play className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 ml-1" />
-                      </div>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">EduSync Demo</h3>
+                    <p className="text-gray-600 mb-4">AI-Powered Timetable Generation</p>
+                    <div className="text-sm text-gray-500">
+                      Video: /SIH(Landing).mp4
                     </div>
                   </div>
                 </div>
+
+                {/* Decorative border */}
+                <div className="absolute inset-0 rounded-2xl border-4 border-white/20 pointer-events-none" style={{ zIndex: 2 }}></div>
               </div>
 
-              {/* Floating Feature Callouts */}
-              <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-white rounded-lg shadow-lg p-2 lg:p-3 animate-bounce">
+              {/* Video Debug Info */}
+              <div className="absolute -top-2 -right-2 lg:-top-4 lg:-right-4 bg-white rounded-lg shadow-lg p-2 lg:p-3">
                 <div className="flex items-center">
                   <Zap className="w-4 h-4 lg:w-5 lg:h-5 text-yellow-500 mr-1 lg:mr-2" />
                   <div>
                     <div className="text-xs lg:text-sm font-semibold text-gray-800">
-                      Lightning Fast
+                      Demo Video
                     </div>
-                    <div className="text-xs text-gray-600 hidden sm:block">
-                      Generate in seconds
+                    <div className="text-xs text-gray-600">
+                      EduSync in Action
                     </div>
                   </div>
                 </div>
