@@ -645,26 +645,25 @@ function HomePage() {
               <div className="video-container shadow-2xl transform rotate-2 lg:rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="video-inner p-2 lg:p-3">
                   <div className="relative w-full h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden bg-gradient-to-br from-purple-100 to-blue-100">
-                    {/* Try multiple video sources and fallback */}
+                    {/* Optimized video with smaller file size */}
                     <video
                       className="w-full h-full object-cover"
                       autoPlay
                       loop
                       muted
                       playsInline
-                      controls
                       poster="/background.jpg"
                       onError={(e) => {
-                        console.error('Video error:', e);
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
+                        console.error("Video error:", e);
+                        e.target.style.display = "none";
+                        e.target.nextElementSibling.style.display = "flex";
                       }}
-                      onLoadStart={() => console.log('Video loading started')}
-                      onCanPlay={() => console.log('Video can play')}
+                      onLoadStart={() => console.log("Video loading started")}
+                      onCanPlay={() => console.log("Video can play")}
+                      onLoadedData={() => console.log("Video loaded successfully")}
                     >
                       <source src="/SIH(Landing).mp4" type="video/mp4" />
-                      <source src="./SIH(Landing).mp4" type="video/mp4" />
-                      <source src="/public/SIH(Landing).mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
                     </video>
 
                     {/* Fallback content */}
@@ -673,8 +672,12 @@ function HomePage() {
                         <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                           <Play className="w-8 h-8 text-purple-600" />
                         </div>
-                        <div className="text-xl font-bold mb-2">EduSync Demo</div>
-                        <div className="text-sm opacity-75 mb-4">AI-Powered Timetable Generation</div>
+                        <div className="text-xl font-bold mb-2">
+                          EduSync Demo
+                        </div>
+                        <div className="text-sm opacity-75 mb-4">
+                          AI-Powered Timetable Generation
+                        </div>
                         <div className="text-xs text-gray-600">
                           Video loading... Please check your connection
                         </div>

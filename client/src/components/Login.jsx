@@ -1054,6 +1054,28 @@ function Login() {
                 </div>
               </form>
 
+              {/* Test Credentials */}
+              <div className="mt-4 sm:mt-5 md:mt-6 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 animate-delay-100 mobile-spacing" data-animate="fadeInUp">
+                <h3 className="text-sm font-semibold text-gray-800 mb-3 text-center">Test Credentials</h3>
+                <div className="space-y-2 text-xs">
+                  <div className="bg-white/70 rounded-md p-2 border border-blue-100">
+                    <div className="font-medium text-blue-800 mb-1">Admin Dashboard</div>
+                    <div className="text-gray-600">Email: admin@gmail.com</div>
+                    <div className="text-gray-600">Password: Pass@123</div>
+                  </div>
+                  <div className="bg-white/70 rounded-md p-2 border border-green-100">
+                    <div className="font-medium text-green-800 mb-1">Teacher Dashboard</div>
+                    <div className="text-gray-600">Email: mohan@gmail.com</div>
+                    <div className="text-gray-600">Password: Pass@123</div>
+                  </div>
+                  <div className="bg-white/70 rounded-md p-2 border border-purple-100">
+                    <div className="font-medium text-purple-800 mb-1">Student Dashboard</div>
+                    <div className="text-gray-600">Email: shikhar@gmail.com</div>
+                    <div className="text-gray-600">Password: Pass@123</div>
+                  </div>
+                </div>
+              </div>
+
               {/* Additional Links */}
               <div className="mt-4 sm:mt-5 md:mt-6 text-center animate-delay-100 mobile-spacing" data-animate="fadeInUp">
                 <p className="text-sm text-gray-600">

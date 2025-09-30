@@ -69,9 +69,14 @@ function Navbar() {
                   <div className="absolute inset-0 bg-white/20 rounded-lg blur-sm group-hover:blur-none transition-all duration-300"></div>
                   <Calendar className="relative w-8 h-8 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                  EduSync
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-xl font-bold bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+                    EduSync
+                  </span>
+                  <span className="text-xs text-blue-200/80 font-medium -mt-1">
+                    NEP 2020
+                  </span>
+                </div>
               </Link>
             </div>
 
