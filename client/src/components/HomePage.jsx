@@ -658,20 +658,20 @@ function HomePage() {
                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center" style={{ zIndex: 2 }}>
                   <div className="text-center text-white p-8">
                     {/* Play Button */}
-                    <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl hover:bg-white/30 transition-all duration-300 cursor-pointer group">
+                    {/* <div className="w-24 h-24 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl hover:bg-white/30 transition-all duration-300 cursor-pointer group">
                       <Play className="w-12 h-12 text-white ml-1 group-hover:scale-110 transition-transform duration-300" />
-                    </div>
+                    </div> */}
                     
                     {/* Content */}
-                    <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                    {/* <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
                       EduSync Demo
                     </h3>
                     <p className="text-xl text-blue-100 mb-6 max-w-md mx-auto leading-relaxed">
                       Watch how our AI-powered system generates perfect timetables in seconds
-                    </p>
+                    </p> */}
                     
                     {/* Features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto">
+                    {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-lg mx-auto">
                       <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
                         <div className="text-2xl font-bold text-yellow-400">⚡</div>
                         <div className="text-sm font-medium">Lightning Fast</div>
@@ -684,7 +684,7 @@ function HomePage() {
                         <div className="text-2xl font-bold text-blue-400">🤖</div>
                         <div className="text-sm font-medium">AI-Powered</div>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 
